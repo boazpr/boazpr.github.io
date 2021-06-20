@@ -68,10 +68,21 @@ window.onpopstate = () => {
   };
 
 $("#pack").on("click", function(){
-  $(".sub").slideToggle();
+  $(".sub_pack").slideToggle();
+});
+
+$("#share").on("click", function(){
+  $(".sub_share").slideToggle();
 });
 
 $("#menu").on("click", function(){
   $("#open").toggle()
   $("#close").toggle()
 })
+
+window.onbeforeunload = function() { 
+  window.setTimeout(function () { 
+      window.location = 'index.html';
+  }, 0); 
+  window.onbeforeunload = null;
+}
