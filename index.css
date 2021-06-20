@@ -150,10 +150,10 @@ iframe#x::-webkit-scrollbar {
     }
 
     .navigation nav img{
-        width: 20px;
+        width: 23px;
     }
     .navigation nav.sub img{
-        width: 15px;
+        width: 18px;
     }
     .navigation nav.sub .hover{
         font-size: 10px;
@@ -167,7 +167,7 @@ iframe#x::-webkit-scrollbar {
 
     .navigation nav a{
         padding: 10px 5px;
-        grid-template-columns: 40px min-content;
+        grid-template-columns: 50px min-content;
     }
     .navigation nav.sub a{
         padding: 5px;
