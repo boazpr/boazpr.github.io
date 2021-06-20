@@ -23,6 +23,7 @@ const loadAllPages = async () => {
   about = await loadPage('pages/about.html');
   tracks = await loadPage('pages/tracks.html');
   packs = await loadPage('pages/packs.html');
+  youtube = await loadPage('pages/youtube.html');
 };
 
 //Get the Element with the Id 'root'
@@ -40,6 +41,7 @@ const main = async () => {
     '/tracks': tracks,
     '/about': about,
     '/packs': packs,
+    '/youtube': youtube,
   };
 };
 
@@ -55,6 +57,7 @@ main();
  const onNavClick = (pathname) => {
     window.history.pushState({}, pathname, window.location.origin + pathname);
     rootDiv.innerHTML = routes[pathname];
+    $(".sub").slideUp(500);
   };
 
   /**
@@ -63,3 +66,12 @@ main();
 window.onpopstate = () => {  
     rootDiv.innerHTML = routes[window.location.pathname];
   };
+
+$("#pack").on("click", function(){
+  $(".sub").slideToggle();
+});
+
+$("#menu").on("click", function(){
+  $("#open").toggle()
+  $("#close").toggle()
+})

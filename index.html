@@ -13,7 +13,7 @@
 <body>
     <div class="navigation">
         <nav>
-            <a id="expand"><img src="assets/images/menu.svg"></a>
+            <a id="menu"><img src="assets/images/menuopen.svg" id="open"> <img src="assets/images/menuclose.svg" id="close" style="display: none;"></a>
         </nav>
         <nav class="logo">
             <a href="#" onclick="onNavClick('/'); return false;">B</a>
@@ -22,24 +22,28 @@
             <a href="#" onclick="onNavClick('/tracks'); return false;"><img src="assets/images/audiotrack.svg"><span class="hover">Tracks</span></a>
         </nav>
         <nav>
-            <a href="#" onclick="onNavClick('/packs'); return false;"><img src="assets/images/album.svg"><span class="hover">Packs</span></a>
+            <a href="#" onclick="onNavClick('/packs'); return false;" id="pack"><img src="assets/images/album.svg"><span class="hover">Packs</span></a>
         </nav>
         <nav class="sub">
-            <a href="#uplifter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/uplift.svg"><span class="hover">Uplifter</span></a>
+            <a href="#uplifter"><img src="assets/images/uplift.svg"><span class="hover">Uplifter</span></a>
         </nav>
         <nav class="sub">
-            <a href="#downlifter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/downlift.svg"><span class="hover">Downlifter</span></a>
+            <a href="#downlifter"><img src="assets/images/downlift.svg"><span class="hover">Downlifter</span></a>
         </nav>
         <nav class="sub">
-            <a href="#loop" onclick="onNavClick('/packs'); return false;"><img src="assets/images/loop.svg"><span class="hover">Loop</span></a>
+            <a href="#loop"><img src="assets/images/loop.svg"><span class="hover">Loop</span></a>
         </nav>
         <nav class="sub">
-            <a href="#starter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/starter.svg"><span class="hover">Starter</span></a>
+            <a href="#starter"><img src="assets/images/starter.svg"><span class="hover">Starter</span></a>
         </nav>
         <nav>
             <a href="#" onclick="onNavClick('/about'); return false;"><img src="assets/images/person.svg"><span class="hover">About</span></a>
         </nav>
+        <nav>
+            <a href="#" onclick="onNavClick('/youtube'); return false;"><img src="assets/images/youtube.svg"><span class="hover">Youtube<br>channel</span></a>
+        </nav>
     </div>
+    <div style="min-width: 80px;"></div>
     
     <div id="root"></div>
     <script src="index.js"></script>

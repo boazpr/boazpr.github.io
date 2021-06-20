@@ -14,10 +14,19 @@ a{
 }
 
 .navigation{
+    height: 100%;
+    position: fixed;
+    overflow: scroll;
     min-width: 80px;
     background-color: rgb(24,30,37);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
+.navigation::-webkit-scrollbar {
+    display: none;
+  }
+  
 .navigation nav{
     text-align: center;
     align-items: center;
@@ -25,7 +34,6 @@ a{
 
 .navigation nav.logo{
     background-color: rgb(60,181,209);
-    height: 80px;
 }
 .navigation nav.logo a{
     font-size: 55px;
@@ -37,7 +45,7 @@ a{
 }
 
 .navigation nav a{
-    padding: 10px;
+    padding: 20px 10px;
     display: grid;
     grid-template-columns: 60px min-content;
     align-items: center;
@@ -78,7 +86,11 @@ a{
 }
 
 .navigation nav.sub{
+    display: none;
     background-color: rgba(35,43,51,255);
+}
+.navigation nav.sub a{
+    padding: 10px;
 }
 .navigation nav.sub img{
     width: 20px;
@@ -102,4 +114,24 @@ h1, h3{
 img.background{
     width: 50%;
     opacity: 0.1;
+}
+
+iframe#x{
+    width: 100%;
+    height: 100vh;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border: none;
+    overflow: hidden;
+    position: relative
+}
+
+iframe#x::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
 }
