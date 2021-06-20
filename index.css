@@ -166,10 +166,10 @@ iframe#x::-webkit-scrollbar {
     }
 
     .navigation nav a{
-        padding: 10px 5px;
+        padding: 15px 5px;
         grid-template-columns: 50px min-content;
     }
     .navigation nav.sub a{
-        padding: 5px;
+        padding: 10px 5px;
     }
 }
