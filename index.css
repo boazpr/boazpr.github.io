@@ -109,9 +109,23 @@ a{
     width: 100%;
     min-height: 100vh;
     background-color: rgb(242,243,248);
+    text-align: center;
 }
 
-h1, h3{
+h1{
+    font-weight: 300;
+    color: rgb(88, 88, 88);
+}
+h3{
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(88, 88, 88);
+}
+
+p{
+    display: inline-block;
+    max-width: 400px;
+    font-size: 15px;
     font-weight: 300;
     color: rgb(88, 88, 88);
 }
