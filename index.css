@@ -128,6 +128,7 @@ p{
     font-size: 15px;
     font-weight: 300;
     color: rgb(88, 88, 88);
+    padding: 0 20px;
 }
 img.background{
     width: 50%;
@@ -160,7 +161,7 @@ iframe#x::-webkit-scrollbar {
     }
     
     .blank{
-        min-width: 50px;
+        min-width: 60px;
     }
 
     .navigation nav img{
