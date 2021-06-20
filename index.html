@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BoazPr</title>
+    <script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <ul class="navbar-list">
-        <li class="navbar-item">
-          <a href="#" onclick="onNavClick('/about'); return false;">About</a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" onclick="onNavClick('/'); return false;">Home</a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" onclick="onNavClick('/contact'); return false;">Contact</a>
-        </li>
-      </ul>
-      <div id="root"></div>
-      <script src="index.js"></script>
+    <div class="navigation">
+        <nav>
+            <a id="expand"><img src="assets/images/menu.svg"></a>
+        </nav>
+        <nav class="logo">
+            <a href="#" onclick="onNavClick('/'); return false;">B</a>
+        </nav>
+        <nav>
+            <a href="#" onclick="onNavClick('/tracks'); return false;"><img src="assets/images/audiotrack.svg"><span class="hover">Tracks</span></a>
+        </nav>
+        <nav>
+            <a href="#" onclick="onNavClick('/packs'); return false;"><img src="assets/images/album.svg"><span class="hover">Packs</span></a>
+        </nav>
+        <nav class="sub">
+            <a href="#uplifter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/uplift.svg"><span class="hover">Uplifter</span></a>
+        </nav>
+        <nav class="sub">
+            <a href="#downlifter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/downlift.svg"><span class="hover">Downlifter</span></a>
+        </nav>
+        <nav class="sub">
+            <a href="#loop" onclick="onNavClick('/packs'); return false;"><img src="assets/images/loop.svg"><span class="hover">Loop</span></a>
+        </nav>
+        <nav class="sub">
+            <a href="#starter" onclick="onNavClick('/packs'); return false;"><img src="assets/images/starter.svg"><span class="hover">Starter</span></a>
+        </nav>
+        <nav>
+            <a href="#" onclick="onNavClick('/about'); return false;"><img src="assets/images/person.svg"><span class="hover">About</span></a>
+        </nav>
+    </div>
+    
+    <div id="root"></div>
+    <script src="index.js"></script>
 </body>
 </html>

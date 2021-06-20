@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation{
+    min-width: 80px;
+    background-color: rgb(24,30,37);
+}
+
+.navigation nav{
+    text-align: center;
+    align-items: center;
+}
+
+.navigation nav.logo{
+    background-color: rgb(60,181,209);
+    height: 80px;
+}
+.navigation nav.logo a{
+    font-size: 55px;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+}
+.navigation nav.logo a:hover{
+    background-color: rgb(60,181,209);
+}
+
+.navigation nav a{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 60px min-content;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+
+.navigation nav a:hover {
+    background-color: rgb(33, 50, 58);
+}
+
+
+.navigation nav span{
+    color: rgba(255, 255, 255, 0.883);
+}
+.hover{
+    
+    display: none;
+    padding: 10px;
+    font-weight: 400;
+    position:absolute;
+    background-color: rgb(33, 50, 58);
+    
+}
+
+.navigation nav a:hover .hover{
+    display: block;
+}
+
+.expand{
+    display: none;
+    padding: 0 30px;
+    font-weight: 300;
+}
+
+.navigation nav img{
+    width: 25px;
+}
+
+.navigation nav.sub{
+    background-color: rgba(35,43,51,255);
+}
+.navigation nav.sub img{
+    width: 20px;
+}
+
+.navigation nav.sub .hover{
+    font-size: 12px;
+    
+}
+
+#root{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(242,243,248);
+}
+
+h1, h3{
+    font-weight: 300;
+    color: rgb(88, 88, 88);
+}
+img.background{
+    width: 50%;
+    opacity: 0.1;
+}

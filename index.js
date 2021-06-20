@@ -21,7 +21,8 @@ const loadPage = async (page) => {
 const loadAllPages = async () => {
   home = await loadPage('pages/home.html');
   about = await loadPage('pages/about.html');
-  contact = await loadPage('pages/contact.html');
+  tracks = await loadPage('pages/tracks.html');
+  packs = await loadPage('pages/packs.html');
 };
 
 //Get the Element with the Id 'root'
@@ -36,8 +37,9 @@ const main = async () => {
   rootDiv.innerHTML = home;
   routes = {
     '/': home,
-    '/contact': contact,
+    '/tracks': tracks,
     '/about': about,
+    '/packs': packs,
   };
 };
 
@@ -61,5 +63,3 @@ main();
 window.onpopstate = () => {  
     rootDiv.innerHTML = routes[window.location.pathname];
   };
-  
-  
