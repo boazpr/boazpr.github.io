@@ -23,6 +23,10 @@ a{
     -ms-overflow-style: none;
 }
 
+.blank{
+    min-width: 80px;
+}
+
 .navigation::-webkit-scrollbar {
     display: none;
   }
@@ -134,4 +138,38 @@ iframe#x::-webkit-scrollbar {
 
   ::-webkit-scrollbar {
     display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .navigation{
+        min-width: 50px;
+    }
+    
+    .blank{
+        min-width: 50px;
+    }
+
+    .navigation nav img{
+        width: 20px;
+    }
+    .navigation nav.sub img{
+        width: 15px;
+    }
+    .navigation nav.sub .hover{
+        font-size: 10px;
+    }
+    .hover{
+        font-size: 12px;
+    }
+    .navigation nav.logo a{
+        font-size: 40px;
+    }
+
+    .navigation nav a{
+        padding: 10px 5px;
+        grid-template-columns: 40px min-content;
+    }
+    .navigation nav.sub a{
+        padding: 5px;
+    }
 }
