@@ -166,6 +166,11 @@ iframe#x::-webkit-scrollbar {
     grid-template-columns: 60px auto;
 }
 
+.audio img{
+  width: 60px;
+  height: 60px;
+}
+
 /* Audio player */
 
 .audio-player {

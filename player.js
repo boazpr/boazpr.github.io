@@ -1,10 +1,27 @@
-const audioPlayer = document.querySelector(".audio-player");
-const audio = new Audio(
-  "assets/audios/backsound.mp3"
-);
-//credit for song: Adrian kreativaweb@gmail.com
+function getRandomTrack(tracks){
+  return tracks[Math.floor(Math.random()*tracks.length)]; 
+}
 
-console.dir(audio);
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random()*this.length))];
+}
+
+
+$.getJSON( "tracks.json", function( data ) {
+  let tracks = [];
+  data.forEach(function(obj) { 
+    tracks.push(obj);
+  });
+  let track = tracks.random();
+  $(".audio img").attr('src', track.img_url.replace('file/d/', 'uc?id=').replace('/view?usp=sharing','').toString())
+  $(".name").empty().append(track.name)
+  const audio = new Audio(
+    track.audio_url.replace('https://drive.google.com/file/d/', 'https://docs.google.com/uc?export=download&id=').replace('/view?usp=sharing','').toString()
+  );
+
+
+const audioPlayer = document.querySelector(".audio-player");
+
 
 audio.addEventListener(
   "loadeddata",
@@ -86,3 +103,5 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+});

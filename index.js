@@ -86,3 +86,11 @@ window.onbeforeunload = function() {
   }, 0); 
   window.onbeforeunload = null;
 }
+
+
+
+
+
+
+// :"https://drive.google.com/file/d/10HDnDY1QyvZ-R9a-vbx6ah503jWMonSF/view?usp=sharing",
+// https://drive.google.com/uc?id=1jEMqvhI6_Y7xvRkrKfy_jBgxGzagpBUH
