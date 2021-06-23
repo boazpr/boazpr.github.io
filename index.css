@@ -65,8 +65,7 @@ a{
 .navigation nav span{
     color: rgba(255, 255, 255, 0.883);
 }
-.hover{
-    
+.hover{    
     display: none;
     padding: 10px;
     font-weight: 400;
@@ -77,12 +76,6 @@ a{
 
 .navigation nav a:hover .hover{
     display: block;
-}
-
-.expand{
-    display: none;
-    padding: 0 30px;
-    font-weight: 300;
 }
 
 .navigation nav img{
@@ -108,12 +101,12 @@ a{
 #root{
     width: 100%;
     min-height: 100vh;
+    margin-bottom: 60px;
     background-color: rgb(242,243,248);
     text-align: center;
 }
 
 h1{
-    padding-top: 20px;
     margin: 0;
     font-weight: 300;
     color: rgb(88, 88, 88);

@@ -1,3 +1,4 @@
+
 //Declare the variables for html pages
 let home = '';
 let about = '';
@@ -56,7 +57,7 @@ main();
  */
  const onNavClick = (pathname) => {
     window.history.pushState({}, pathname, window.location.origin + pathname);
-    rootDiv.innerHTML = routes[pathname];
+    rootDiv.innerHTML = routes[pathname] + contend(pathname);
     $(".sub").slideUp(500);
   };
 
@@ -75,11 +76,6 @@ $("#share").on("click", function(){
   $(".sub_share").slideToggle();
 });
 
-$("#menu").on("click", function(){
-  $("#open").toggle()
-  $("#close").toggle()
-})
-
 window.onbeforeunload = function() { 
   window.setTimeout(function () { 
       window.location = 'index.html';
@@ -88,9 +84,3 @@ window.onbeforeunload = function() {
 }
 
 
-
-
-
-
-// :"https://drive.google.com/file/d/10HDnDY1QyvZ-R9a-vbx6ah503jWMonSF/view?usp=sharing",
-// https://drive.google.com/uc?id=1jEMqvhI6_Y7xvRkrKfy_jBgxGzagpBUH

@@ -1,0 +1,83 @@
+
+.title{
+    padding:20px 10px;
+    display: flex;
+    align-items: center;
+}
+.title img{
+    width: 40px;
+    display: inline-block;
+}
+.title h1{
+    display: inline-block;
+    font-weight: 300;
+}
+.item{
+    margin: 20px 10px;
+    display: inline-block;
+    width: 100vw;
+    height: 100vw;
+    max-height: 200px;
+    max-width: 140px;
+}
+.track{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: auto 100%;
+    background-position: center;
+    overflow: hidden;
+}
+
+.favourite{
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+}
+
+.download{
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+}
+
+.track_name{
+    text-align: left;
+    font-size: 15px;
+    color: rgb(114, 114, 114);
+    font-weight: 400;
+    padding: 5px 5px 0 5px;
+}
+.track_dis{
+    text-align: left;
+    font-size: 12px;
+    color: rgb(149, 149, 149);
+    font-weight: 400;
+    padding: 2px 5px;
+}
+
+.track_player{
+    display: none;
+    background-color: rgba(24, 30, 37, 0.705);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.track_player img{
+    opacity: 0.5;
+    margin-top: 60%;
+    cursor: pointer;
+}
+
+.track_player img:hover{
+    opacity: 1;
+}
+
+.track:hover .track_player{
+    display: block;
+
+}
+
