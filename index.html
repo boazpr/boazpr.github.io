@@ -1,101 +1,947 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="XwmjQ0ol72VMu7U_x7olrv7PU5huY90fAf9SFKmdk5U" />
-    <title>BoazPr</title>
-    <script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <link rel='stylesheet' href='https://icono-49d6.kxcdn.com/icono.min.css'>
-    <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="pages/track.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — AI Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #EFF5EF;
+      --cream-dark: #D4E6D4;
+      --ink: #0E2114;
+      --ink-mid: #2D4D35;
+      --ink-light: #6B9070;
+      --terracotta: #1A5C32;
+      --terracotta-pale: #D0E9D4;
+      --gold: #3A8C50;
+      --white: #F4FAF4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 5vw;
+      background: rgba(239, 245, 239, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 8vw 5rem;
+      gap: 0;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-left::after { display: none; }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-top: 1.2rem;
+      margin-bottom: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-tagline {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--terracotta);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-cta:hover { background: #124527; transform: translateY(-1px); }
+
+    .hero-right { display: none; }
+
+    .profile-photo-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .profile-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px dashed var(--terracotta);
+      opacity: 0.45;
+    }
+
+    .profile-avatar-svg {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: 0 12px 40px rgba(14,33,20,0.18);
+      overflow: hidden;
+      display: block;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 340px;
+      position: relative;
+    }
+
+    .hero-card-accent {
+      position: absolute;
+      top: -10px; left: -10px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+
+    .stat-value span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--terracotta);
+      margin-left: 4px;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 7rem 8vw; }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 3rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1.4rem;
+      font-size: 1.02rem;
+    }
+
+    .drop-cap::first-letter {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4.2em;
+      float: left;
+      line-height: 0.78;
+      margin-right: 0.1em;
+      color: var(--terracotta);
+      padding-top: 0.05em;
+    }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .interest-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--terracotta-pale);
+      color: var(--terracotta);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      margin: 0.2rem;
+    }
+
+    .interests-block { margin-top: 0.5rem; }
+
+    .sidebar-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.92rem;
+    }
+
+    .info-list .info-key {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      min-width: 80px;
+      padding-top: 3px;
+    }
+
+    .info-list .info-val {
+      color: var(--ink-mid);
+    }
+
+    /* ── EDUCATION ── */
+    .education { background: var(--cream); }
+
+    .edu-timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--terracotta), var(--cream-dark));
+    }
+
+    .edu-entry {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .edu-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .edu-entry::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      transform: translateX(-4.5px);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 3px var(--terracotta-pale);
+    }
+
+    .edu-year {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .edu-school {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .module-cell {
+      background: var(--white);
+      padding: 0.85rem 1rem;
+    }
+
+    .module-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      margin-bottom: 0.3rem;
+    }
+
+    .module-grade {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+    }
+
+    .module-grade.grade-a { color: var(--terracotta); }
+    .module-grade.grade-b { color: var(--gold); }
+
+    .gpa-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      background: #1A5C32;
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+    }
+
+    .gpa-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .gpa-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .edu-note {
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* ── SECONDARY SCHOOL ── */
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .result-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 3px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .result-subject {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-grade {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+
+    /* ── PROJECTS ── */
+    .projects { background: var(--white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(14,33,20,0.1);
+    }
+
+    .project-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: var(--cream-dark);
+      line-height: 1;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--terracotta-pale);
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      border: 1px solid var(--terracotta);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .project-link:hover {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .project-link.disabled {
+      color: var(--ink-light);
+      border-color: var(--cream-dark);
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .project-stack {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .stack-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    /* ── CONTACT / FOOTER ── */
+    footer {
+      background: #0B1F12;
+      color: var(--cream);
+      padding: 5rem 8vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .footer-left p {
+      font-size: 0.92rem;
+      color: var(--ink-light);
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream-dark);
+      text-decoration: none;
+      border: 1px solid rgba(237,229,212,0.25);
+      padding: 0.6rem 1.2rem;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--cream); color: var(--cream); }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-left > * {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .eyebrow { animation-delay: 0.1s; }
+    .hero-name { animation-delay: 0.25s; }
+    .hero-tagline { animation-delay: 0.4s; }
+    .hero-cta { animation-delay: 0.55s; }
+    .hero-card { animation: fadeUp 0.7s ease 0.45s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        padding: 6rem 6vw 4rem;
+      }
+      .hero-right { flex-direction: column; align-items: center; gap: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      nav { padding: 1rem 5vw; }
+      .nav-links { gap: 1.2rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 5rem 5vw; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="navigation">
-        <nav class="logo">
-            <a href="#" onclick="onNavClick('/'); return false;">B</a>
-        </nav>
-        <nav>
-            <a href="#" onclick="onNavClick('/tracks'); return false;"><img src="assets/images/audiotrack.svg"><span class="hover">Tracks</span></a>
-        </nav>
-        <nav>
-            <a href="#" onclick="onNavClick('/packs'); return false;" id="pack"><img src="assets/images/album.svg"><span class="hover">Packs</span></a>
-        </nav>
-        <nav class="sub sub_pack">
-            <a href="#uplifter"><img src="assets/images/uplift.svg"><span class="hover">Uplifter</span></a>
-        </nav>
-        <nav class="sub sub_pack">
-            <a href="#downlifter"><img src="assets/images/downlift.svg"><span class="hover">Downlifter</span></a>
-        </nav>
-        <nav class="sub sub_pack">
-            <a href="#loop"><img src="assets/images/loop.svg"><span class="hover">Loop</span></a>
-        </nav>
-        <nav class="sub sub_pack">
-            <a href="#starter"><img src="assets/images/starter.svg"><span class="hover">Starter</span></a>
-        </nav>
-        <nav>
-            <a href="#" onclick="onNavClick('/youtube'); return false;"><img src="assets/images/youtube.svg"><span class="hover">Youtube<br>Channel</span></a>
-        </nav>
-        <nav>
-            <a href="https://www.youtube.com/channel/UCcKEHwIA-F-xTLWlE7I-qaw" target="_blank"><img src="assets/images/link.svg"><span class="hover">Youtube<br>Link</span></a>
-        </nav>
-        <nav>
-            <a id="share"><img src="assets/images/share.svg"><span class="hover">Share</span></a>
-        </nav>
-        <nav class="sub sub_share">
-            <a href="whatsapp://send?text=Download free musical tracks and packs!!! https://boazpr.github.io/" data-action="share/whatsapp/share"><img src="assets/images/whatsapp.svg"><span class="hover">Whatsapp</span></a>
-        </nav>
-        <nav class="sub sub_share">
-            <a onclick=" window.open( 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><img src="assets/images/facebook.svg"><span class="hover">Facebook</span></a>
-        </nav>
-        <nav class="sub sub_share">
-            <a href="viber://forward?text=Download free musical tracks and packs!!! https://boazpr.github.io/"><img src="assets/images/viber.svg"><span class="hover">Viber</span></a>
-        </nav>
-        <nav>
-            <a href="#" onclick="onNavClick('/about'); return false;"><img src="assets/images/person.svg"><span class="hover">About</span></a>
-        </nav>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">B2</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding: 0;">
+    <div class="hero-left">
+      <p class="eyebrow">AI Student &amp; Researcher</p>
+      <h1 class="hero-name">Boaz<br /><em>Prathaban</em></h1>
+      <div class="profile-photo-wrap" style="margin-bottom: 2rem;">
+        <img src="boaz.jpg" class="profile-avatar-svg" alt="Boaz" style="object-fit:cover; object-position: center top;" />
+      </div>
+      <p class="hero-tagline">
+        Exploring the edges of machine intelligence at the University of Moratuwa — curious about learning systems, language, and the machines that think.
+      </p>
+      <a href="#education" class="hero-cta">View My Journey →</a>
     </div>
-    <div class="blank"></div>
-    <div>
-        <div id="root"></div>
-        <div class="audio">
-            <img/>
-            <div class="audio-player" style="margin: 0 auto">
-                <div class="timeline">
-                  <div class="progress"></div>
-                </div>
-                <div class="controls">
-                  <div class="name">Music Song</div>
-                  <div class="play-container">
-                    <div class="toggle-play play">
-                  </div>
-                  </div>
-                  <div class="time">
-                    <div class="current">0:00</div>
-                    <div class="divider">/</div>
-                    <div class="length"></div>
-                  </div>
-                  <div class="volume-container">
-                    <div class="volume-button">
-                      <div class="volume icono-volumeMedium"></div>
-                    </div>
-                    
-                    <div class="volume-slider">
-                      <div class="volume-percentage"></div>
-                    </div>
-                  </div>
-                </div>
-            </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">A mind drawn<br /><em style="font-style:italic; color:var(--terracotta);">to intelligence</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="drop-cap">
+          I am a Christ follower who enjoys building and creating new things. I like turning ideas into practical projects and learning through the process of making things happen.
+        </p>
+        <p>
+          An undergraduate student studying Artificial Intelligence at the University of Moratuwa, Sri Lanka’s premier technological university. The focus is on understanding how intelligent systems are designed and how they can be applied to solve real-world problems.
+        </p>
+        <p>
+Interested in how machines learn and what that reveals about intelligence itself. Also enjoys exploring the philosophy of mind, contributing to open-source projects, and thinking about how AI can be developed and applied in responsible and meaningful ways, especially in the South Asian context.        </p>
+      </div>
+
+      <div class="about-sidebar">
+        <div>
+          <p class="sidebar-heading">Quick Facts</p>
+          <ul class="info-list">
+            <li>
+              <span class="info-key">Based in</span>
+              <span class="info-val">Sri Lanka</span>
+            </li>
+            <li>
+              <span class="info-key">Program</span>
+              <span class="info-val">BSc Artificial Intelligence</span>
+            </li>
+            <li>
+              <span class="info-key">University</span>
+              <span class="info-val">University of Moratuwa</span>
+            </li>
+            <li>
+              <span class="info-key">Grad. Year</span>
+              <span class="info-val">2030 (Expected)</span>
+            </li>
+            <li>
+              <span class="info-key">Languages</span>
+              <span class="info-val">English, Tamil</span>
+            </li>
+          </ul>
         </div>
+
+        <div class="interests-block">
+          <p class="sidebar-heading">Areas of Interest</p>
+          <div>
+            <span class="interest-tag">AI Ethics</span>
+            <span class="interest-tag">Data Science</span>
+            <span class="interest-tag">Robotics</span>
+            <span class="interest-tag">Music Creation</span>
+            <span class="interest-tag">Design</span>
+            <span class="interest-tag">Physics</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="tracks.json"></script>
-    <script  src="pages/tracks.js"></script>
-    <script src="index.js"></script>
-    <script  src="player.js"></script>
-    
-    
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="education" id="education">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic<br /><em style="font-style:italic; color:var(--terracotta);">Record</em></h2>
+
+    <div class="edu-timeline">
+
+      <!-- University -->
+      <div class="edu-entry">
+        <p class="edu-year">2025 — Present</p>
+        <h3 class="edu-degree">BSc in Artificial Intelligence</h3>
+        <p class="edu-school">University of Moratuwa · Faculty of Information Technology</p>
+
+      <!-- A/L -->
+      <div class="edu-entry">
+        <p class="edu-year">2024</p>
+        <h3 class="edu-degree">GCE Advanced Level</h3>
+        <p class="edu-school">Mn/St.Xaviers Boys College</p>
+
+        <div class="secondary-grid">
+          <div class="result-card">
+            <p class="result-subject">Combined Maths</p>
+            <p class="result-grade">A</p>
+          </div>
+          <div class="result-card">
+            <p class="result-subject">Physics</p>
+            <p class="result-grade">A</p>
+          </div>
+          <div class="result-card">
+            <p class="result-subject">ICT</p>
+            <p class="result-grade">A</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- O/L -->
+      <div class="edu-entry">
+        <p class="edu-year">2021</p>
+        <h3 class="edu-degree">GCE Ordinary Level</h3>
+        <p class="edu-school">Mn/St.Xaviers Boys College</p>
+
+        <div class="secondary-grid">
+          <div class="result-card">
+            <p class="result-subject">Mathematics</p>
+            <p class="result-grade">A</p>
+          </div>
+          <div class="result-card">
+            <p class="result-subject">Science</p>
+            <p class="result-grade">A</p>
+          </div>
+          <div class="result-card">
+            <p class="result-subject">English</p>
+            <p class="result-grade">A</p>
+          </div>
+          <div class="result-card">
+            <p class="result-subject">ICT</p>
+            <p class="result-grade">A</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">What I've<br /><em style="font-style:italic; color:var(--terracotta);">been building</em></h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <span class="project-number">01</span>
+        <span class="project-tag">Web Game site</span>
+        <h3 class="project-title">Retro Arcade Game</h3>
+        <p class="project-desc">
+          A website where you can play old-style classic games online with simple controls and pixel graphics, just like old arcade machines.
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">Html</span>
+          <span class="stack-pill">Css</span>
+          <span class="stack-pill">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/boazpr/arcade-games-projects" class="project-link" target="_blank">↗ GitHub</a>
+          <a href="https://boazpr.github.io/arcade-games-projects/" class="project-link" target="_blank">↗ Demo</a>
+        </div>
+      </div>
+
+      
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="footer-left">
+      <h2>Let's connect.</h2>
+      <p>Open to conversations about AI research, internships, or collaborations.</p>
+      <div class="contact-links">
+        <a href="boazprathaban@gmail.com" class="contact-link">Email</a>
+        <a href="https://www.linkedin.com/in/boaz-prathaban-356614257/" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/boazpr" class="contact-link" target="_blank">GitHub</a>
+        <a href="https://www.youtube.com/@B2_n_BG" class="contact-link" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/boa_1618?igsh=anR5ZmVramF1Mmhs" class="contact-link" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <p>University of Moratuwa</p>
+      <p>BSc Artificial Intelligence</p>
+      <p style="margin-top:0.5rem; opacity:0.5;">© 2026 Boaz Prathaban</p>
+    </div>
+  </footer>
+
 </body>
 </html>
